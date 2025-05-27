@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import './App.css';
 import { init } from '@module-federation/enhanced/runtime';
 import { getRemote } from './runtime/loadRemote';
-
+import retryPlugin from './runtime/plugins/retry.ts';
 init({
   name: '@runtime/host',
   remotes: [
@@ -17,6 +17,7 @@ init({
       entry: "http://localhost:3002/mf-manifest.json",
     }
   ],
+  plugins: [retryPlugin()]
 });
 
 // Module loading
