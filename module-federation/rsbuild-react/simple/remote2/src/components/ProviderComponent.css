@@ -1,0 +1,42 @@
+.container-remote2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  background: linear-gradient(45deg, #f43f5e, #f472b6, #ec4899, #e11d48);
+  background-size: 400% 400%;
+  animation: gradientFlow 6s ease infinite;
+}
+
+.title-remote2 {
+  font-size: 3rem;
+  color: #fff;
+  margin-bottom: 20px;
+  animation: fadeInUp 1s ease-out;
+  border: 0.25rem solid #fff;
+  padding: 2rem;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
