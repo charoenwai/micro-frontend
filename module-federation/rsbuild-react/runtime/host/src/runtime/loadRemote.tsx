@@ -1,8 +1,9 @@
 import { ComponentType, lazy } from "react";
-import { loadRemote } from '@module-federation/enhanced/runtime';
+import { mf } from './mfInstance';
+
 export const getRemote = async (remoteName: string, moduleName: string) => lazy(async () => {
   try {
-    const module = await loadRemote(`${remoteName}/${moduleName}`);
+    const module = await mf.loadRemote(`${remoteName}/${moduleName}`);
     if (!module) {
       console.warn(`Remote component ${remoteName}/${moduleName} not found, using fallback`);
       return {

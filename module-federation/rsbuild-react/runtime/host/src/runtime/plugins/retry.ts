@@ -2,15 +2,10 @@ import { RetryPlugin } from '@module-federation/retry-plugin';
 
 const retryPlugin = () =>
   RetryPlugin({
-    fetch: {},
-    script: {
-      retryTimes: 3,
-      retryDelay: 1000,
-      cb: (resolve, error) => {
-        return setTimeout(() => {
-          resolve(error);
-        }, 1000);
-      },
-    },
+    retryTimes: 3,
+    retryDelay: 1000,
+    onRetry: ({ times, url }) => console.log('Retrying...', times, url),
+    onSuccess: ({ url }) => console.log('Success!', url),
+    onError: ({ url }) => console.log('Failed!', url),
   });
 export default retryPlugin;
